@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize'
-import Library from './components/Library/library.model';
+import { LibraryController } from './components/Library/library.controller';
+import { Library } from './components/Library/library.model';
+import { LibraryService } from './components/Library/library.service';
 
 
 @Module({
@@ -17,7 +19,7 @@ import Library from './components/Library/library.model';
     }),
     SequelizeModule.forFeature([Library])
   ],
-  controllers: [],
-  providers: [],
+  controllers: [LibraryController],
+  providers: [LibraryService],
 })
 export class AppModule {}
