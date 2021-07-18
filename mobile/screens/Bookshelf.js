@@ -3,6 +3,7 @@ import {
     View,
     Text,
 } from 'react-native';
+import Book from '../components/Book';
 
 const Bookshelf = () => {
 
@@ -20,7 +21,12 @@ const Bookshelf = () => {
 
     return(
         <View>
-            <Text>Bookshelf</Text>
+            {books && books.map((book, idx) => {
+                return(
+                    <Book key={idx} title={book.title} author={book.author}/>
+                )
+            })}
+            
         </View>
     )
 }
